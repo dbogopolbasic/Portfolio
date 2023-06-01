@@ -1,0 +1,133 @@
+CREATE DATABASE db1;
+
+CREATE TABLE db1.dogShelters (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+  nameOfPethouse VARCHAR(25) NOT NULL,
+  address VARCHAR(50) NOT NULL UNIQUE,
+  email VARCHAR(50) UNIQUE,
+  phoneNumber VARCHAR(20) NOT NULL UNIQUE
+);
+
+INSERT INTO db1.dogShelters(nameOfPethouse, address, email, phoneNumber) VALUES
+('Save puppy', 'Olx Street 123', 'savepuppy@animals.io', '+380954444444'),
+('Adopt paws', 'Sky Street 151', 'adoptpaws@animals.io', '+380956666666'),
+('Save animals', 'Lakes Street 12A', 'saveanimals@animals.io', '+380957777777');
+
+CREATE TABLE db1.dogs (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+  nameOfDog VARCHAR(15) NOT NULL,
+  breed VARCHAR(40) NOT NULL,
+  gender VARCHAR(15),
+  age INT NOT NULL
+ );
+ 
+INSERT INTO db1.dogs (nameOfDog, breed, gender, age) VALUES
+   ('Rex', 'Poodle', 'musculine', 7),
+   ('Avocado', 'Pitbull', 'feminine', 1),
+   ('Kane', 'Rottwieler', 'feminine', 9),
+   ('Jasper', 'Beagle', 'musculine', 3),
+   ('Simba', 'Labrador', 'feminine', 3),
+   ('Obi', 'Labrador', 'musculine', 11),
+   ('Troya', 'Labrador', 'feminine', 4);
+
+UPDATE db1.dogs SET breed = 'German Shepherd' WHERE nameOfDog = 'Simba' AND id <> 0;
+UPDATE db1.dogs SET breed = 'Boxer' WHERE nameOfDog = 'Obi' AND id <> 0;
+
+SELECT * FROM db1.dogs;
+
+ALTER TABLE db1.dogs
+ADD COLUMN color VARCHAR(25) AFTER age;
+
+ALTER TABLE db1.dogs
+DROP COLUMN color;
+
+DELETE 
+FROM db1.dogs
+WHERE id = 5;
+
+DROP TABLE db1.dogs;
+
+DROP DATABASE db1;
+
+-- SELECT requests from db1.dogs
+
+SELECT * FROM db1.dogs;
+
+SELECT nameOfDog FROM db1.dogs;
+
+SELECT nameOfDog, breed FROM db1.dogs;
+
+SELECT nameOfDog FROM db1.dogs WHERE id = 3;
+
+SELECT nameOfDog FROM db1.dogs WHERE id = 3 AND id = 6;
+
+SELECT nameOfDog FROM db1.dogs WHERE id = 3 OR id = 1;
+
+SELECT nameOfDog FROM db1.dogsWHERE id = 3 BETWEEN id = 1;
+
+SELECT DISTINCT FROM db1.dogs;
+
+SELECT nameOfDog FROM db1.dogs WHERE NOT id = 3;
+
+SELECT nameOfDog FROM db1.dogsWHERE id IN (1, 3, 5, 6, 7);
+
+-- SELECT requests from db1.dogs (With LIKE)
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '%a%';
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '%a_';
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '__a%';
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '____';
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE 'A%';
+
+SELECT nameOfDog FROM db1.dogs WHERE nameOfDog NOT LIKE 'A__t__';
+
+-- SELECT requests from db1.dogs (Aggregate functions)
+
+SELECT SUM(age) AS total_age FROM db1.dogs;
+
+SELECT COUNT(id) AS amount_of_dogs FROM db1.dogs;
+
+SELECT MAX(age) AS the_oldest_dog FROM db1.dogs;
+
+SELECT MIN(age) AS the_youngest_dog FROM db1.dogs;
+
+SELECT AVG(age) AS average_age FROM db1.dogs;
+
+-- SELECT requests from db1.dogs(ORDER BY and GROUP BY)
+
+SELECT age FROM db1.dogs ORDER BY age;
+
+SELECT age FROM db1.dogs ORDER BY age DESC;
+
+SELECT age FROM db1.dogs ORDER BY age DESC, nameOFDog ASC;
+
+SELECT age FROM db1.dogs GROUP BY age;
+
+SELECT age, breed FROM db1.dogs GROUP BY age, breed;
+
+SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC;
+
+-- SELECT requests from db1.dogs (LIMIT)
+
+SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC LIMIT 3;
+
+SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC LIMIT 3 OFFSET 1;
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
