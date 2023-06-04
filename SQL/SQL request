@@ -51,71 +51,124 @@ DROP DATABASE db1;
 
 -- SELECT requests from db1.dogs
 
-SELECT * FROM db1.dogs;
+SELECT * 
+FROM db1.dogs;
 
-SELECT nameOfDog FROM db1.dogs;
+SELECT nameOfDog 
+FROM db1.dogs;
 
-SELECT nameOfDog, breed FROM db1.dogs;
+SELECT nameOfDog, breed 
+FROM db1.dogs;
 
-SELECT nameOfDog FROM db1.dogs WHERE id = 3;
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE id = 3;
 
-SELECT nameOfDog FROM db1.dogs WHERE id = 3 AND id = 6;
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE id = 3 AND id = 6;
 
-SELECT nameOfDog FROM db1.dogs WHERE id = 3 OR id = 1;
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE id = 3 OR id = 1;
 
-SELECT nameOfDog FROM db1.dogsWHERE id = 3 BETWEEN id = 1;
+SELECT nameOfDog 
+FROM db1.dogs
+WHERE id = 3 BETWEEN id = 1;
 
-SELECT DISTINCT FROM db1.dogs;
+SELECT DISTINCT 
+FROM db1.dogs;
 
-SELECT nameOfDog FROM db1.dogs WHERE NOT id = 3;
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE NOT id = 3;
 
-SELECT nameOfDog FROM db1.dogsWHERE id IN (1, 3, 5, 6, 7);
+SELECT nameOfDog 
+FROM db1.dogs
+WHERE id IN (1, 3, 5, 6, 7);
 
 -- SELECT requests from db1.dogs (With LIKE)
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '%a%';
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE nameOfDog LIKE '%a%';
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '%a_';
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE nameOfDog LIKE '%a_';
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '__a%';
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE nameOfDog LIKE '__a%';
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE '____';
+SELECT nameOfDog 
+FROM db1.dogs 
+HERE nameOfDog LIKE '____';
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog LIKE 'A%';
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE nameOfDog LIKE 'A%';
 
-SELECT nameOfDog FROM db1.dogs WHERE nameOfDog NOT LIKE 'A__t__';
+SELECT nameOfDog 
+FROM db1.dogs 
+WHERE nameOfDog NOT LIKE 'A__t__';
 
 -- SELECT requests from db1.dogs (Aggregate functions)
 
-SELECT SUM(age) AS total_age FROM db1.dogs;
+SELECT SUM(age) AS total_age 
+FROM db1.dogs;
 
-SELECT COUNT(id) AS amount_of_dogs FROM db1.dogs;
+SELECT COUNT(id) AS amount_of_dogs 
+FROM db1.dogs;
 
-SELECT MAX(age) AS the_oldest_dog FROM db1.dogs;
+SELECT MAX(age) AS the_oldest_dog 
+FROM db1.dogs;
 
-SELECT MIN(age) AS the_youngest_dog FROM db1.dogs;
+SELECT MIN(age) AS the_youngest_dog 
+FROM db1.dogs;
 
-SELECT AVG(age) AS average_age FROM db1.dogs;
+SELECT AVG(age) AS average_age 
+FROM db1.dogs;
 
 -- SELECT requests from db1.dogs(ORDER BY and GROUP BY)
 
-SELECT age FROM db1.dogs ORDER BY age;
+SELECT age 
+FROM db1.dogs
+ORDER BY age;
 
-SELECT age FROM db1.dogs ORDER BY age DESC;
+SELECT age 
+FROM db1.dogs 
+ORDER BY age DESC;
 
-SELECT age FROM db1.dogs ORDER BY age DESC, nameOFDog ASC;
+SELECT age 
+FROM db1.dogs 
+ORDER BY age DESC, nameOFDog ASC;
 
-SELECT age FROM db1.dogs GROUP BY age;
+SELECT age 
+FROM db1.dogs 
+GROUP BY age;
 
-SELECT age, breed FROM db1.dogs GROUP BY age, breed;
+SELECT age, breed 
+FROM db1.dogs 
+GROUP BY age, breed;
 
-SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC;
+SELECT age, breed 
+FROM db1.dogs 
+GROUP BY age, breed 
+ORDER BY age DESC;
 
 -- SELECT requests from db1.dogs (LIMIT)
 
-SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC LIMIT 3;
+SELECT age, breed 
+FROM db1.dogs 
+GROUP BY age, breed 
+ORDER BY age DESC 
+LIMIT 3;
 
-SELECT age, breed FROM db1.dogs GROUP BY age, breed ORDER BY age DESC LIMIT 3 OFFSET 1;
+SELECT age, breed 
+FROM db1.dogs GROUP BY age, breed 
+ORDER BY age DESC 
+LIMIT 3 OFFSET 1;
 
 
  
