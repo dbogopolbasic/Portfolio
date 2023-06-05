@@ -1,0 +1,35 @@
+XPaths for site "https://epicentrk.ua/"
+
+For Search Field:
+
+//input[@type='text'][@placeholder='Пошук']
+
+For list of Bread Crumbs:
+
+//ul[@class='breadcrumbs__list']
+
+For first child of Bread Crumbs:
+
+//ul[@class='breadcrumbs__list']/child::li[1]
+
+or
+
+//ul[@class='breadcrumbs__list']/child::li[@id='breadcrumb_1']
+
+For section with recommendations and for each element:
+
+//div[@class='row you-watched-slider-container']
+
+//div[@class='row you-watched-slider-container']//div[@class='you-watched__controls']/child::button[1]
+
+//div[@class='row you-watched-slider-container']//div[@class='you-watched__controls']/child::button[2]
+
+//div[@class='row you-watched-slider-container']//div[contains(@class, 'swiper')]
+
+Button 'About company':
+
+//nav[@id='info-footer']/child::a[@title='Про компанію']
+
+
+
+
